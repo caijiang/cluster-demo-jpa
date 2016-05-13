@@ -12,6 +12,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
     </properties>
 
     <dependencies>
@@ -36,6 +38,12 @@
 
     <build>
         <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
             <!--<plugin>-->
             <!--<groupId>org.apache.maven.plugins</groupId>-->
             <!--<artifactId>maven-deploy-plugin</artifactId>-->
@@ -52,15 +60,15 @@
             <!--</configuration>-->
             <!--</plugin>-->
             <plugin>
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <!--<version>${maven.compiler.plugin.version}</version>-->
+                <version>${maven.compiler.plugin.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <!--<compilerArguments>-->
-                    <!--<endorseddirs>${endorsed.dir}</endorseddirs>-->
-                    <!--</compilerArguments>-->
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
                 </configuration>
             </plugin>
         </plugins>
