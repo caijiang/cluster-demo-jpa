@@ -14,6 +14,10 @@
             <property name="eclipselink.weaving" value="false"/>
             <property name="eclipselink.logging.level" value="FINE"/>
             <property name="javax.persistence.schema-generation.database.action" value="create"/>
+
+            <!--java.lang.ClassNotFoundException: org.eclipse.persistence.sessions.coordination.jgroups.JGroupsTransportManager-->
+            <property name="eclipselink.cache.coordination.protocol" value="jgroups"/>
+
         </properties>
     </persistence-unit>
 
